@@ -65,8 +65,8 @@ define rke2::manifest (
         source        => $link,
         cleanup       => false,
         creates       => $__manifest_path,
-        checksum      => $checksum,
-        checksum_type => $checksum_type,
+        checksum      => $link_checksum,
+        checksum_type => $link_checksum_type,
         require       => $require
       }
     } else {
