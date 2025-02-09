@@ -1,0 +1,19 @@
+<% |
+  $config,
+  $content,
+  $name,
+  | -%>
+# THIS FILE IS MANAGED BY PUPPET
+<% if ( undef != $content ) { -%>
+# rke2::manifest: <%= $name %>
+<%= $content -%>
+<% } else { -%>
+<% if ( $config =~ Hash ) { -%>
+<%= to_yaml($config,  { line_width => 4096}) %>
+<% } elsif ( $config =~ Array ) { -%>
+<% $config.each | Integer $index, Hash $data | { -%>
+# rke2::manifest: <%= $name -%>.<%= $index %>
+<%= to_yaml($data,  { line_width => 4096}) %>
+<% } -%>
+<% } -%>
+<% } -%>

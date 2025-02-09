@@ -1,0 +1,14 @@
+---
+rke2::version: 1.31.3
+rke2::checksum: b7c60e3fc7397179abdba173d6f91e571caa7c7035ac7b3db7c347209049b4ec
+rke2::ensure: present
+rke2::run_mode: server
+rke2::service_ensure: running
+rke2::service_enable: true
+rke2::service_restart: false
+rke2::service_envs:
+  HOME: /root
+rke2::config:
+  tls-san:
+    - "%{facts.networking.hostname}.%{facts.networking.domain}"
+rke2::manifests: {}
