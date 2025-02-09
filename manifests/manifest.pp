@@ -67,20 +67,17 @@ define rke2::manifest (
         creates       => $__manifest_path,
         checksum      => $link_checksum,
         checksum_type => $link_checksum_type,
-        require       => $require
       }
     } else {
       if ( undef == $source ) {
         file { "rke2-manifest-${name}":
           path    => $__manifest_path,
           content => epp("${module_name}/manifest.epp", { 'config' => $config, 'content' => $content, 'name' => $name }),
-          require => $require
         }
       } else {
         file { "rke2-manifest-${name}":
           path    => $__manifest_path,
           source  => $source,
-          require => $require
         }
       }
     }
