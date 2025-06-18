@@ -20,8 +20,12 @@ class rke2::post {
         'test -s /root/.kube/config',
         'diff -q /etc/rancher/rke2/rke2.yaml /root/.kube/config',
       ],
+      onlyif  => [
+        'test -f /etc/rancher/rke2/rke2.yaml',
+      ],
       require => [
         File['/root/.kube'],
+        File['/etc/rancher/rke2/config.yaml'],
         Service[$rke2::__service_name]
       ]
     }
