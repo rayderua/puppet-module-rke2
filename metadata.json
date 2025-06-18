@@ -1,12 +1,23 @@
 {
   "name": "rayderua-rke2",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "rayder",
   "summary": "",
   "license": "Apache-2.0",
   "source": "",
   "dependencies": [
-
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.0.0 < 9.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.18.0 < 10.0.0"
+    },
+    {
+      "name": "puppet-archive",
+      "version_requirement": ">= 4.0.0 < 8.0.0"
+    }
   ],
   "operatingsystem_support": [
     {
