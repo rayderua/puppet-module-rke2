@@ -2,4 +2,4 @@
   Hash $config,
   | -%>
 # THIS FILE IS MANAGED BY PUPPET
-<%= to_yaml($config,  { line_width => 4096}) %>
+<%= stdlib::to_yaml($config,  { line_width => 4096}) %>
